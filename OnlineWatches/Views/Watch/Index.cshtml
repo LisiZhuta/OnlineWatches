@@ -1,0 +1,50 @@
+﻿@using System.Text.RegularExpressions
+@model IEnumerable<OnlineWatches.Models.Watch>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        
+        <div class="col-6">
+            <a asp-controller="Watch" asp-action="Create" class="btn btn-primary">Create new Watch</a>
+        </div>
+    </div>
+    <br />
+
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div>
+            <h2>Watches</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Year</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var watch in Model)
+                    {
+                        <tr>
+                            <td>@watch.Name</td>
+                            <td>@watch.Price</td>
+                            <td>@watch.Year</td>
+                            <td><img src="@Url.Content(watch.ImgPath)" alt="Watch Image" style="max-width: 100px;" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>No watches available.</p>
+    }
+
+
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OnlineWatches.Models.Watch>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4">Welcome</h1>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var watch in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 d-flex flex-column justify-content-between">
+                        <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image" style="max-height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@watch.Name</h5>
+                            <p class="card-text">Price: $@watch.Price</p>
+                            <p class="card-text">Year: @watch.Year</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No watches available.</p>
+        }
+    </div>
+</div>
