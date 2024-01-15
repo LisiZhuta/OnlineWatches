@@ -27,6 +27,27 @@ namespace OnlineWatches.Controllers
             return View(watches);
         }
 
+        public IActionResult Rolex()
+        {
+            // Retrieve watches that contain "Rolex" in their name
+            IEnumerable<Watch> watches = _db.Watches.Where(w => w.Name.Contains("Rolex")).ToList();
+
+            return View(watches);
+        }
+        public IActionResult Audemars()
+        {
+            // Retrieve watches that contain "Audemars" in their name
+            IEnumerable<Watch> watches = _db.Watches.Where(w => w.Name.Contains("Audemars")).ToList();
+
+            return View(watches);
+        }
+        public IActionResult Patek()
+        {
+            // Retrieve watches that contain "Patek" in their name
+            IEnumerable<Watch> watches = _db.Watches.Where(w => w.Name.Contains("Patek")).ToList();
+
+            return View(watches);
+        }
 
         [Authorize(Roles = "Admin")]
         [HttpGet]

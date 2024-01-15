@@ -47,4 +47,49 @@ button.accept-policy {
   line-height: 60px;
 }
 
+.nav-links {
+    text-align: center; /* Center align the links */
+    display: flex;
+    justify-content: center; /* Horizontally center the items */
+    list-style-type: none; /* Remove bullet points */
+}
+    .nav-links li {
+        margin: 0 10px; /* Spacing between links */
+    }
+
+
+.navbar-nav .nav-link {
+    /* Set link color to black */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #007bff !important; /* Set link color on hover (you can adjust the color as needed) */
+    }
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-collapse {
+    flex-grow: 1; /* Grow to fill available space */
+    justify-content: center; /* Center the nav links */
+    margin-left:150px;
+}
+
+.navbar-icons {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly between icons */
+    margin-left: auto; /* Align icons to the right */
+    align-items: center; /* Align icons vertically */
+    min-width: 120px; /* Adjust this value based on the total width you prefer for the icons area */
+}
+
+    .navbar-icons .nav-item {
+        margin: 0 10px; /* Adjust space between each icon, modify as needed */
+    }
+        .navbar-icons .nav-item .nav-link {
+            color: black; /* Change icon color to black */
+            font-size: 1em; /* Increase the size of the icons */
+        }
+
 

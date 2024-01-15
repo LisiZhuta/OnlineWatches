@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Home\HomePage.cshtml.cs" />
+    <Compile Remove="Views\Watch\AllWatch.cshtml.cs" />
+    <Compile Remove="Views\Watch\AllWatches.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\HomePage.cshtml" />
+    <Content Remove="Views\Watch\AllWatch.cshtml" />
+    <Content Remove="Views\Watch\AllWatches.cshtml" />
+    <Content Remove="Views\Watch\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">

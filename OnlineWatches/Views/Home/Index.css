@@ -1,0 +1,80 @@
+﻿.container {
+    /*overflow:hidden;*/
+}
+
+.slider-container {
+    overflow: hidden
+}
+
+.card-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+.col-md-4 {
+    position: relative;
+}
+
+.card {
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+    .card img {
+        object-fit: contain; /* Changed from 'cover' to 'contain' */
+        width: 100%;
+        height: 200px;
+        border-bottom: 1px solid #eee;
+        /* If needed, adjust 'max-height' to a suitable value */
+    }
+
+
+.card-body {
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 83%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+    .slider-controls button {
+        background-color: #3498db;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+.card button.next {
+    /* Remove the right calculation */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px; /* Adjust the right position */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.slider-controls button.next {
+    /* Remove the right calculation */
+    right: 0; /* Adjust the right position */
+}
+
+.slider-controls button:hover {
+    background-color: #2980b9;
+}
