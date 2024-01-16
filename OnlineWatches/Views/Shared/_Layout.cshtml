@@ -28,9 +28,27 @@
         </nav>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+            <form asp-action="Search" asp-controller="Watch" method="get">
+              <div class="input-group">
+<input class="form-control" type="search" placeholder="Search this blog" aria-label="Search" name="searchTerm">
+<div class="input-group-append">
+<button class="btn btn-secondary" type="submit">
+<i class="fa fa-search"></i>
+</button>
+</div>
+</div>
+</form>
+
+
+
+
+
             <div class="container d-flex justify-content-between align-items-center">
 
                 <div class="navbar-collapse" id="navbarNav">
+
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Watch">All Watches</a>
@@ -52,15 +70,21 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Watch">Sale/Offers</a>
                         </li>
+                        @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+                        @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                        
+                           
+
+                           
+                            <a class="nav-link" asp-action="Create" asp-controller="Watch">Add a Watch</a>
+                       
+                        }
                     </ul>
                 </div>
 
                 <div class="d-flex align-items-center navbar-icons" style="list-style-type:none">
-                    <li class="nav-item me-3">
-                        <a class="nav-link" asp-action="Rolex" asp-controller="Watch">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </li>
+                    
 
                     <li class="nav-item me-3">
                         <a class="nav-link" asp-action="Audemars" asp-controller="Watch">
@@ -75,7 +99,7 @@
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link" asp-action="Patek" asp-controller="Watch">
-                            <i class="fas fa-shopping-bag"></i>
+                            <i class="fas fa-heart"></i>
                         </a>
                     </li>
                 </div>
@@ -102,5 +126,7 @@
 
 
     @await RenderSectionAsync("Scripts", required: false)
+  
+
 </body>
 </html>

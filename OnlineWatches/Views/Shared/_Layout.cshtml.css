@@ -73,8 +73,11 @@ button.accept-policy {
 .navbar-collapse {
     flex-grow: 1; /* Grow to fill available space */
     justify-content: center; /* Center the nav links */
-    margin-left:150px;
+    
 }
+
+
+
 
 .navbar-icons {
     display: flex;
@@ -92,4 +95,36 @@ button.accept-policy {
             font-size: 1em; /* Increase the size of the icons */
         }
 
+
+/* Styles for wrapping the search box */
+
+form.input-group{width:20%}
+
+.btn-secondary {
+    background-color: #0d6efd;
+    border:none;
+}
+
+.main {
+    
+    margin: 50px auto;
+}
+
+/* Bootstrap 5 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
 

@@ -1,0 +1,130 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-zk2f462etx] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-zk2f462etx] {
+  color: #0077cc;
+}
+
+.btn-primary[b-zk2f462etx] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-zk2f462etx], .nav-pills .show > .nav-link[b-zk2f462etx] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-zk2f462etx] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-zk2f462etx] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-zk2f462etx] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-zk2f462etx] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-zk2f462etx] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+.nav-links[b-zk2f462etx] {
+    text-align: center; /* Center align the links */
+    display: flex;
+    justify-content: center; /* Horizontally center the items */
+    list-style-type: none; /* Remove bullet points */
+}
+    .nav-links li[b-zk2f462etx] {
+        margin: 0 10px; /* Spacing between links */
+    }
+
+
+.navbar-nav .nav-link[b-zk2f462etx] {
+    /* Set link color to black */
+}
+
+    .navbar-nav .nav-link:hover[b-zk2f462etx] {
+        color: #007bff !important; /* Set link color on hover (you can adjust the color as needed) */
+    }
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu[b-zk2f462etx] {
+    display: block;
+}
+
+.navbar-collapse[b-zk2f462etx] {
+    flex-grow: 1; /* Grow to fill available space */
+    justify-content: center; /* Center the nav links */
+    
+}
+
+
+
+
+.navbar-icons[b-zk2f462etx] {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly between icons */
+    margin-left: auto; /* Align icons to the right */
+    align-items: center; /* Align icons vertically */
+    min-width: 120px; /* Adjust this value based on the total width you prefer for the icons area */
+}
+
+    .navbar-icons .nav-item[b-zk2f462etx] {
+        margin: 0 10px; /* Adjust space between each icon, modify as needed */
+    }
+        .navbar-icons .nav-item .nav-link[b-zk2f462etx] {
+            color: black; /* Change icon color to black */
+            font-size: 1em; /* Increase the size of the icons */
+        }
+
+
+/* Styles for wrapping the search box */
+
+form.input-group[b-zk2f462etx]{width:20%}
+
+.btn-secondary[b-zk2f462etx] {
+    background-color: #0d6efd;
+    border:none;
+}
+
+.main[b-zk2f462etx] {
+    
+    margin: 50px auto;
+}
+
+/* Bootstrap 5 text input with search icon */
+
+.has-search .form-control[b-zk2f462etx] {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback[b-zk2f462etx] {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+

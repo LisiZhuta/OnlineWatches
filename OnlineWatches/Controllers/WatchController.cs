@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 using OnlineWatches.Data;
 using OnlineWatches.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace OnlineWatches.Controllers
 {
@@ -36,11 +37,15 @@ namespace OnlineWatches.Controllers
         }
         public IActionResult Audemars()
         {
+           
             // Retrieve watches that contain "Audemars" in their name
             IEnumerable<Watch> watches = _db.Watches.Where(w => w.Name.Contains("Audemars")).ToList();
 
             return View(watches);
         }
+        
+        
+        
         public IActionResult Patek()
         {
             // Retrieve watches that contain "Patek" in their name
@@ -64,7 +69,7 @@ namespace OnlineWatches.Controllers
         public IActionResult Create(Watch obj)
         {
             if (ModelState.IsValid)
-            {
+            {  // Creates a watch 
                // obj.CreatedUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 _db.Watches.Add(obj);
                 _db.SaveChanges();
@@ -72,5 +77,38 @@ namespace OnlineWatches.Controllers
             }
             return View(obj);
         }
+
+        public IActionResult Search(string searchTerm)
+        {
+            // Retrieve watches that contain the search term in their name
+            IEnumerable<Watch> watches = _db.Watches.Where(w => w.Name.Contains(searchTerm)).ToList();
+            
+
+            return View("Search", watches); 
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemoveWatch(int watchId)
+        {
+            // Retrieve the watch from the database
+            var watch = _db.Watches.Find(watchId);
+
+            if (watch == null)
+            {
+                
+                return NotFound();
+            }
+
+            // Remove the watch from the database
+            _db.Watches.Remove(watch);
+            _db.SaveChanges();
+
+            
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

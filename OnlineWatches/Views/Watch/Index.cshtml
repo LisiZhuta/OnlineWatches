@@ -6,7 +6,7 @@
 
 <style>
     .container {
-        /* overflow:hidden; */
+        text-align:center
     }
 
     .img-container {
@@ -50,7 +50,7 @@
 
 <div class="container">
     <div class="text-center mt-5">
-        <h1 class="display-4">Welcome</h1>
+        <h1 class="display-4">All Watches</h1>
     </div>
 
     @if (Model != null && Model.Any())
@@ -68,6 +68,10 @@
                                 <h5 class="card-title">@watch.Name</h5>
                                 <p class="card-text">Price: $@watch.Price</p>
                                 <p class="card-text">Year: @watch.Year</p>
+                                <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
+                                    <input type="hidden" name="watchId" value="@watch.Id" />
+                                    <button type="submit">Remove Watch</button>
+                                </form>
                             </div>
                         </div>
                     </div>

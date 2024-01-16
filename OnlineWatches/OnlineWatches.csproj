@@ -16,7 +16,6 @@
     <Content Remove="Views\Home\HomePage.cshtml" />
     <Content Remove="Views\Watch\AllWatch.cshtml" />
     <Content Remove="Views\Watch\AllWatches.cshtml" />
-    <Content Remove="Views\Watch\Create.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

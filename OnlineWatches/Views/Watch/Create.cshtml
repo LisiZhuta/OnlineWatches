@@ -1,0 +1,55 @@
+﻿@model OnlineWatches.Models.Watch
+
+<form asp-action="Create" method="post" class="container mt-5">
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="m-0">Add Watch</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label asp-for="Name" class="form-label" style="color: #0d6efd;"></label>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Price" class="form-label" style="color: #0d6efd;"></label>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Year" class="form-label" style="color: #0d6efd;"></label>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="ImgPath" class="form-label" style="color: #0d6efd;"></label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <input asp-for="Name" class="form-control" style="border-color: #0d6efd;" />
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <input asp-for="Price" class="form-control" style="border-color: #0d6efd;" />
+                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <input asp-for="Year" class="form-control" style="border-color: #0d6efd;" />
+                    @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger" })
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <input asp-for="ImgPath" class="form-control" style="border-color: #0d6efd;" />
+                    @Html.ValidationMessageFor(m => m.ImgPath, "", new { @class = "text-danger" })
+                    <span asp-validation-for="ImgPath" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-8 offset-md-2 row mt-4">
+                    <div class="col">
+                        <input type="submit" class="btn btn-primary w-100" value="Create" style="background-color: #0d6efd; border-color: #0d6efd;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
