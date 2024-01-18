@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<ApplicationUser>
 
+
 <h2>All Accounts</h2>
 
 <table class="table">
@@ -7,6 +8,7 @@
         <tr>
             <th>Email</th>
             <th>Name</th>
+            @* <th>Role</th> *@
             <th>Actions</th>
         </tr>
     </thead>
@@ -16,6 +18,7 @@
             <tr>
                 <td>@user.Email</td>
                 <td>@user.Name</td>
+               @*  <td>@user.RoleName</td> *@
                 <td>
                     <form method="post" asp-action="DeleteUser" asp-controller="Account">
                         <input type="hidden" name="id" value="@user.Id" />

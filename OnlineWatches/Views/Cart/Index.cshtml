@@ -102,7 +102,7 @@ foreach (var item in Model.CartItems)
             <h3>Total Price: $@totalPrice</h3>
             <form asp-action="Checkout" asp-controller="Cart" method="get">
                 <!-- Include any necessary hidden fields for checkout -->
-                <button type="submit" class="btn btn-success">Checkout</button>
+                    <button type="submit" class="btn btn-success" onclick="return checkCartBeforeCheckout();">Checkout</button>
             </form>
             }
         </div>
@@ -150,3 +150,15 @@ foreach (var item in Model.CartItems)
             <p>Sign in to add items to cart.</p>
         }
     }
+
+
+    <script>
+        function checkCartBeforeCheckout() {
+            var cartItems = @Model.CartItems.Count;
+            if (cartItems === 0) {
+                alert('There are no items in your cart.');
+                return false; // Prevents the form from submitting
+            }
+            return true; // Proceed with form submission
+        }
+    </script>

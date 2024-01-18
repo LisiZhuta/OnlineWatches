@@ -36,6 +36,21 @@
         background-color: #f9f9f9;
     }
 
+    form button {
+        border: 1px solid #0d6efd; /* Set initial border color */
+        color: black; /* Set text color */
+        background-color: transparent; /* Make background transparent */
+        padding: 5px 10px; /* Add padding for better appearance */
+        transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+    }
+
+        /* Hover effect for buttons */
+        form button:hover {
+            border-color: #0d6efd; /* Change border color on hover */
+            background-color: #0d6efd; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
     /* ... Other styles ... */
 </style>
 
@@ -52,7 +67,23 @@
             {
                 <p style="color:red">Discounted Price: $@(Model.Price - (Model.Price * Model.Discount) / 100)</p>
             }
+            @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+            @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+                <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
+                    <input type="hidden" name="watchId" value="@Model.Id" />
+                    <button type="submit">Remove Watch</button>
+                </form>
+                <form asp-controller="Watch" asp-action="Update" asp-route-id="@Model.Id" method="get">
+                    <button type="submit">Edit Watch</button>
+                </form>
 
+            }
+
+            @if (@SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+            {
+                
+            
             <!-- Action Buttons -->
             <form method="post" asp-action="AddToCart" asp-controller="Cart">
                 <input type="hidden" name="watchId" value="@Model.Id" />
@@ -67,6 +98,7 @@
                 <input type="hidden" name="watchId" value="@Model.Id" />
                 <button type="submit" class="btn btn-success">Buy Now</button>
             </form>
+            }
         </div>
     </div>
 </div>

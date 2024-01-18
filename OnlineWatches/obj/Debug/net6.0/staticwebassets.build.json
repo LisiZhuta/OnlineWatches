@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LSaPr3qW512hr/fuyYOX+2whHoBClLv06Bv6jND8P5E=",
+  "Hash": "kM+Qkm/ZQG1UzhNcx7SevUpDQtTMMQDceVxr0AIZN+o=",
   "Source": "OnlineWatches",
   "BasePath": "_content/OnlineWatches",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\1.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\AudemarsPiguetCode.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/1.jpg",
+      "RelativePath": "Images/AudemarsPiguetCode.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,15 +109,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\1.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\AudemarsPiguetCode.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\10.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\AudemarsPiguetJules.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/10.jpg",
+      "RelativePath": "Images/AudemarsPiguetJules.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\10.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\AudemarsPiguetJules.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\11.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\AudemarsPiguetRoyalOak.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/11.jpg",
+      "RelativePath": "Images/AudemarsPiguetRoyalOak.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,15 +147,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\11.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\AudemarsPiguetRoyalOak.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\2.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\AudemarsPiguetRoyalOakOffShore.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/2.jpg",
+      "RelativePath": "Images/AudemarsPiguetRoyalOakOffShore.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -166,15 +166,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\2.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\AudemarsPiguetRoyalOakOffShore.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\3.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\PatekComplications.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/3.jpg",
+      "RelativePath": "Images/PatekComplications.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,15 +185,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\3.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\PatekComplications.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\4.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\PatekGrand.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/4.jpg",
+      "RelativePath": "Images/PatekGrand.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -204,15 +204,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\4.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\PatekGrand.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\5.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\PatekNautilus.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/5.jpg",
+      "RelativePath": "Images/PatekNautilus.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -223,15 +223,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\5.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\PatekNautilus.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\6.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexCosmographDaytona.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/6.jpg",
+      "RelativePath": "Images/RolexCosmographDaytona.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -242,15 +242,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\6.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\RolexCosmographDaytona.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\7.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexDateJust.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/7.jpg",
+      "RelativePath": "Images/RolexDateJust.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -261,15 +261,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\7.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\RolexDateJust.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\8.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexDayDate.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/8.jpg",
+      "RelativePath": "Images/RolexDayDate.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -280,15 +280,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\8.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\RolexDayDate.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\9.jpg",
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexDaytonaCosmograph2.jpg",
       "SourceId": "OnlineWatches",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
       "BasePath": "_content/OnlineWatches",
-      "RelativePath": "Images/9.jpg",
+      "RelativePath": "Images/RolexDaytonaCosmograph2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -299,7 +299,64 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\9.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\RolexDaytonaCosmograph2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexGmtMaster2.jpg",
+      "SourceId": "OnlineWatches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
+      "BasePath": "_content/OnlineWatches",
+      "RelativePath": "Images/RolexGmtMaster2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\RolexGmtMaster2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexSkyDweller.jpg",
+      "SourceId": "OnlineWatches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
+      "BasePath": "_content/OnlineWatches",
+      "RelativePath": "Images/RolexSkyDweller.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\RolexSkyDweller.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Images\\RolexSubmariner.jpg",
+      "SourceId": "OnlineWatches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\",
+      "BasePath": "_content/OnlineWatches",
+      "RelativePath": "Images/RolexSubmariner.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\RolexSubmariner.jpg"
     },
     {
       "Identity": "C:\\Users\\Lisi\\source\\repos\\OnlineWatches\\OnlineWatches\\wwwroot\\Inex.css",
