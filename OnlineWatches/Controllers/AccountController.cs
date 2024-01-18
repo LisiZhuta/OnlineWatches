@@ -85,7 +85,8 @@ namespace OnlineWatches.Controllers
 			{
 				UserName = model.Email,
 				Email = model.Email,
-				Name = model.Name
+				Name = model.Name,
+				
 			};
 
 			var result = await _userManager.CreateAsync(user, model.Password);
@@ -114,20 +115,55 @@ namespace OnlineWatches.Controllers
             }
 
             var roles = await _userManager.GetRolesAsync(user);
-            var roleName = roles.FirstOrDefault(); // If user is assumed to have only one role
+            var roleName = roles.FirstOrDefault(); // Assuming one role per user
 
             var model = new UserInfoViewModel
             {
-				Name=user.Name,
+                Name = user.Name,
                 Email = user.Email,
-                RoleName = roleName,
-				/*Password=user.Password*/
-				
-                // Password is not included for security reasons
+                RoleName = roleName
             };
 
+            ViewBag.ApplicationUser = user; // Pass the ApplicationUser object to the view
             return View(model);
         }
+
+
+
+        public async Task<IActionResult> AllAccounts()
+        {
+            if (!User.IsInRole("Admin"))
+            {
+                return Unauthorized();
+            }
+
+            var users = _userManager.Users.ToList();
+            return View(users);
+        }
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            if (!User.IsInRole("Admin"))
+            {
+                return Unauthorized();
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                await _userManager.DeleteAsync(user);
+            }
+
+            return RedirectToAction("AllAccounts");
+        }
+
+
+
+
 
     }
 }

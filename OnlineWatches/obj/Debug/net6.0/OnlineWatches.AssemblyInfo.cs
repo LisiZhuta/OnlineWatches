@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineWatches")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79613e641f62cd92331e4ddf08cca43b42425148")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa975d0cfb8d65601066d87acbfbcd126f4f0451")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineWatches")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineWatches")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,18 +1,39 @@
 ﻿@model OnlineWatches.ViewModels.UserInfoViewModel
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> UserManager
+@{
+    var applicationUser = ViewBag.ApplicationUser as OnlineWatches.Models.ApplicationUser;
+}
 
-<h2>User Information</h2>
 
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">User Information</h2>
 
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label"><strong>Name:</strong></label>
+                <div class="border p-2 rounded">
+                    @Model.Name
+                </div>
+            </div>
 
-<div>
-    <strong>Name:</strong> @Model.Name
-</div>
-<div>
-    <strong>Email:</strong> @Model.Email
-</div>
-<div>
-    <strong>Role:</strong> @Model.RoleName
-</div>
-<div>
-    <strong>Password:</strong> @Model.Password
+            <div class="mb-3">
+                <label class="form-label"><strong>Email:</strong></label>
+                <div class="border p-2 rounded">
+                    @Model.Email
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><strong>Role:</strong></label>
+                <div class="border p-2 rounded">
+                    @Model.RoleName
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (await UserManager.IsInRoleAsync(applicationUser, "Admin"))
+    {
+        <a href="@Url.Action("AllAccounts", "Account")" class="btn btn-primary mt-3">View All Accounts</a>
+    }
 </div>
