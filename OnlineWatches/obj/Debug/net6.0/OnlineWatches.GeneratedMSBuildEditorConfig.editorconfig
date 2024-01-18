@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/AllWatches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcQWxsV2F0Y2hlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Audemars.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcQXVkZW1hcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,8 +62,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcSW5kZXguY3NodG1s
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/NewArrival.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcTmV3QXJyaXZhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Patek.cshtml]
@@ -66,8 +78,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcUm9sZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Sale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcU2FsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Watch/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0Y2hcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/Wishlist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lisi/source/repos/OnlineWatches/OnlineWatches/Views/_ViewImports.cshtml]

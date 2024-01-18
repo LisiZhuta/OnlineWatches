@@ -7,15 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Views\Home\HomePage.cshtml.cs" />
     <Compile Remove="Views\Watch\AllWatch.cshtml.cs" />
-    <Compile Remove="Views\Watch\AllWatches.cshtml.cs" />
+    <Compile Remove="Views\Watch\Arrival.cs" />
+    <Compile Remove="Views\Watch\Arrival.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Home\HomePage.cshtml" />
     <Content Remove="Views\Watch\AllWatch.cshtml" />
-    <Content Remove="Views\Watch\AllWatches.cshtml" />
+    <Content Remove="Views\Watch\Arrival.cshtml" />
+    <Content Remove="Views\Watch\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Home\Index.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +42,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <UpToDateCheckInput Remove="Views\Watch\NewArrival.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Watch\NewArrival.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

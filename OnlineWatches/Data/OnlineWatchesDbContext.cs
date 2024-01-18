@@ -15,5 +15,12 @@ namespace OnlineWatches.Data
 
 
 		public DbSet<Watch> Watches { get; set; }
-	}
+
+
+        public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<WishlistItem> WishlistItems { get; set; }
+
+
+    }
 }

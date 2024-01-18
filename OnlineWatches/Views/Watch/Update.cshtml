@@ -1,0 +1,94 @@
+﻿@model OnlineWatches.Models.Watch
+@{
+    ViewData["Title"] = "Edit Watch";
+}
+
+<style>
+    /* Add any additional styles needed for the edit view */
+</style>
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4">Edit Watch</h1>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" asp-action="Update" asp-controller="Watch">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label" style="color: #0d6efd;">Name</label>
+                            <input asp-for="Name" class="form-control" style="border-color: #0d6efd;" />
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label" style="color: #0d6efd;">Price</label>
+                            <input asp-for="Price" class="form-control" style="border-color: #0d6efd;" />
+                            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Year" class="form-label" style="color: #0d6efd;">Year</label>
+                            <input asp-for="Year" class="form-control" style="border-color: #0d6efd;" />
+                            @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImgPath" class="form-label" style="color: #0d6efd;">Image Path</label>
+                            <input asp-for="ImgPath" class="form-control" style="border-color: #0d6efd;" />
+                            @Html.ValidationMessageFor(m => m.ImgPath, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label" style="color: #0d6efd;">Status</label>
+                            <select asp-for="Status" class="form-control" style="border-color: #0d6efd;" required>
+                                <option value="New Arrival">New Arrival</option>
+                                <option value="Sale">Sale</option>
+                            </select>
+                            @Html.ValidationMessageFor(m => m.Status, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3" id="discountInput" style="display: none;">
+                            <label asp-for="Discount" class="form-label" style="color: #0d6efd;">Discount (%)</label>
+                            <input asp-for="Discount" class="form-control" style="border-color: #0d6efd;" />
+                            @Html.ValidationMessageFor(m => m.Discount, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="mt-4">
+                            @if (ViewData["ReturnUrl"] != null)
+                            {
+                                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                            }
+                            <input type="submit" class="btn btn-primary w-100" value="Edit" style="background-color: #0d6efd; border-color: #0d6efd;" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to toggle the visibility of the discount input based on the selected status
+    function toggleDiscountInput() {
+        var statusSelect = document.getElementById('Status');
+        var discountInput = document.getElementById('discountInput');
+
+        if (statusSelect.value === 'Sale') {
+            discountInput.style.display = 'block';
+        } else {
+            discountInput.style.display = 'none';
+        }
+    }
+
+    // Attach the function to the change event of the status select
+    document.getElementById('Status').addEventListener('change', toggleDiscountInput);
+
+    // Initial check when the page loads
+    toggleDiscountInput();
+</script>

@@ -45,7 +45,28 @@
     .card-body {
         padding: 15px;
         background-color: #f9f9f9;
+        height:250px;
     }
+
+
+    form button {
+        border: 1px solid #0d6efd; /* Set initial border color */
+        color: black; /* Set text color */
+        background-color: transparent; /* Make background transparent */
+        padding: 5px 10px; /* Add padding for better appearance */
+        transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+    }
+
+        /* Hover effect for buttons */
+        form button:hover {
+            border-color: #0d6efd; /* Change border color on hover */
+            background-color: #0d6efd; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+
+
+
 </style>
 
 <div class="container">
@@ -62,12 +83,48 @@
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="img-container">
-                                <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                                <a href="@Url.Action("Details", "Watch", new { id = watch.Id })">
+                                    <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                                </a>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">@watch.Name</h5>
                                 <p class="card-text">Price: $@watch.Price</p>
                                 <p class="card-text">Year: @watch.Year</p>
+                                @if (watch.Status == "Sale")
+                                {
+                                    <p class="card-text"style="color:red">Discounted Price: $@(watch.Price - (watch.Price * watch.Discount) / 100)</p>
+                                }
+                                else
+                                {
+                                    <p class="card-text" style="color: transparent;">Discounted Price: $</p>
+                                }
+                                @if (@SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
+                                {
+                                    <div class="mt-2">
+                                        <form method="post" asp-action="AddToCart" asp-controller="Cart" class="mr-2">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                        </form>
+                                        <form method="post" asp-action="AddToWishlist" asp-controller="Wishlist">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit" class="btn btn-primary">Save to Wishlist</button>
+                                        </form>
+                                    </div>
+
+                                }
+                        @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+                                @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {
+                                    <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
+                                        <input type="hidden" name="watchId" value="@watch.Id" />
+                                        <input type="hidden" name="sourceView" value="Patek" />
+                                        <button type="submit">Remove Watch</button>
+                                    </form>
+                                    <form asp-controller="Watch" asp-action="Update" asp-route-id="@watch.Id" method="get">
+                                        <button type="submit">Edit Watch</button>
+                                    </form>
+                                }
                             </div>
                         </div>
                     </div>

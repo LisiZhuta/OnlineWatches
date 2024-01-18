@@ -1,0 +1,142 @@
+﻿@model ShoppingCart
+
+@{
+    ViewData["Title"] = "Your Shopping Cart";
+
+    
+   decimal totalPrice = 0;
+foreach (var item in Model.CartItems)
+{
+    decimal discount = item.Watch.Discount ?? 0; // Fallback to 0 if Discount is null
+    decimal discountedPrice = item.Watch.Price - (item.Watch.Price * discount) / 100;
+    totalPrice += (item.Watch.Status == "Sale" && item.Watch.Discount.HasValue)
+        ? discountedPrice
+        : item.Watch.Price;
+}
+}
+
+<style>
+    .container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+
+    .watch-image {
+        flex-shrink: 0; /* Prevents the image from shrinking */
+        width: 150px; /* Adjust as needed */
+        height: 150px;
+        margin-right: 20px;
+    }
+
+        .watch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+   
+
+    .product-header, .price-header {
+        font-weight: bold;
+    }
+
+    .product-info, .price-info {
+        text-align: left;
+    }
+
+    
+
+    .price-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .product-details {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+        align-items: center;
+        gap: 20px; /* Space between columns */
+    }
+
+    .action-container {
+        grid-column: 3; /* Position the button in the third column */
+        justify-self: end; /* Align the button to the end of the column */
+    }
+
+   h1.display-4{padding-bottom:100px}
+
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .checkout-container {
+        text-align: right;
+    }
+ 
+</style>
+
+<div class="container">
+    
+    <div class="header-row">
+        <h1 class="display-4">Your Shopping Cart</h1>
+        <div class="checkout-container">
+            <h3>Total Price: $@totalPrice</h3>
+            <form action="/path-to-checkout" method="post">
+                <!-- Include any necessary hidden fields for checkout -->
+                <button type="submit" class="btn btn-success">Checkout</button>
+            </form>
+        </div>
+    </div>
+    @if (Model.CartItems != null && Model.CartItems.Any())
+    {
+        foreach (var item in Model.CartItems)
+        {
+            <div class="cart-item">
+                <div class="watch-image">
+                    <img src="@Url.Content(item.Watch.ImgPath)" alt="Watch Image">
+                </div>
+                <div class="product-details">
+                    <div class="product-info">
+                        <div class="product-header">Product</div>
+                        <strong>@item.Watch.Name</strong><br>
+                        Year: @item.Watch.Year
+                    </div>
+                    <div class="price-info">
+                        <div class="price-header">Price</div>
+                        <div class="price-container">
+                            $@item.Watch.Price
+                            @if (item.Watch.Status == "Sale")
+                            {
+                                <br>
+
+                                <span style="color:red">Sale Price: $@(item.Watch.Price - (item.Watch.Price * item.Watch.Discount) / 100)</span>
+                            }
+                        </div>
+                    </div>
+                    <form method="post" asp-action="RemoveFromCart" asp-controller="Cart">
+                        <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                        <button type="submit" class="btn btn-primary">Remove</button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Your cart is empty.</p>
+    }

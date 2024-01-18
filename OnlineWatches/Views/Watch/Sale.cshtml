@@ -1,0 +1,152 @@
+﻿@model IEnumerable<OnlineWatches.Models.Watch>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+
+
+    .container {
+        text-align: center
+    }
+
+    .new-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #0d6efd; /* Set background color */
+        color: #fff; /* Set text color */
+        padding: 5px 10px; /* Add padding for better appearance */
+        border-radius: 5px; /* Add border-radius for rounded corners */
+        z-index: 1; /* Ensure the label appears above the image */
+    }
+
+    .img-container {
+        position: relative;
+        height: 200px; /* Set a fixed height for the container */
+        width: 100%; /* Set the width to 100% */
+        overflow: hidden;
+    }
+
+    .card-slider {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .col-md-4 {
+        position: relative;
+    }
+
+    .card {
+        margin: 0 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+        .card img {
+            object-fit: contain;
+            width: 100%;
+            height: 200px; /* Set a fixed height */
+        }
+
+    .card-body {
+        padding: 15px;
+        background-color: #f9f9f9;
+    }
+
+
+    /* ... Existing styles ... */
+    /* Add new styles for buttons */
+    form button {
+        border: 1px solid red; /* Set initial border color */
+        color: black; /* Set text color */
+        background-color: transparent; /* Make background transparent */
+        padding: 5px 10px; /* Add padding for better appearance */
+        transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+    }
+
+        /* Hover effect for buttons */
+        form button:hover {
+            border-color: red; /* Change border color on hover */
+            background-color: red; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+
+</style>
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4">Sale</h1>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="slider-container">
+            <div class="card-slider">
+                @foreach (var watch in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="new-label" style="background-color:red">- @watch.Discount %</div>
+                                <a href="@Url.Action("Details", "Watch", new { id = watch.Id })">
+                                    <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@watch.Name</h5>
+                                <p class="card-text">
+                                    Original Price: $@watch.Price
+                                    <br />
+                                    <span style="color: red;">Discounted Price: $@(watch.Price - (watch.Price * watch.Discount) / 100)</span>
+                                </p>
+                                <p class="card-text">Year: @watch.Year</p>
+                                @if (@SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
+                                {
+                                    <div class="mt-2">
+                                        <form method="post" asp-action="AddToCart" asp-controller="Cart" class="mr-2">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit">Add to Cart</button>
+                                        </form>
+                                        <form method="post" asp-action="AddToWishlist" asp-controller="Wishlist">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit">Save to Wishlist</button>
+                                        </form>
+                                    </div>
+
+                                }
+                        @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+                                @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {
+                                    <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
+                                        <input type="hidden" name="watchId" value="@watch.Id" />
+                                        <input type="hidden" name="sourceView" value="Sale" />
+                                        <button type="submit">Remove Watch</button>
+                                    </form>
+                                    <form asp-controller="Watch" asp-action="Update" asp-route-id="@watch.Id" method="get">
+                                        <button type="submit">Edit Watch</button>
+                                    </form>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>No watches available.</p>
+    }
+</div>
+
+

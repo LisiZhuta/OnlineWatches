@@ -31,15 +31,15 @@
 
 
             <form asp-action="Search" asp-controller="Watch" method="get">
-              <div class="input-group">
-<input class="form-control" type="search" placeholder="Search this blog" aria-label="Search" name="searchTerm">
-<div class="input-group-append">
-<button class="btn btn-secondary" type="submit">
-<i class="fa fa-search"></i>
-</button>
-</div>
-</div>
-</form>
+                <div class="input-group">
+            <input class="form-control" type="search" placeholder="Search this blog" aria-label="Search" name="searchTerm">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                     </button>
+                 </div>
+                </div>
+            </form>
 
 
 
@@ -51,7 +51,7 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Watch">All Watches</a>
+                            <a class="nav-link" asp-action="AllWatches" asp-controller="Watch">All Watches</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="brandsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,21 +62,25 @@
                                 <a class="dropdown-item" asp-action="Audemars" asp-controller="Watch">Audemars Piguet</a>
                                 <a class="dropdown-item" asp-action="Patek" asp-controller="Watch">Patek Philippe</a>
                                 <!-- Add more brands as needed -->
+                                    
+
+
+@*       if you want when you click and option the link to be active color, use                       
+    <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() 
+    == "Watch" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"
+    asp-action="Index" asp-controller="Watch">All Watches</a>
+ *@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Watch">New Arrivals</a>
+                            <a class="nav-link" asp-action="NewArrival" asp-controller="Watch">New Arrivals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Watch">Sale/Offers</a>
+                            <a class="nav-link" asp-action="Sale" asp-controller="Watch">Sale/Offers</a>
                         </li>
                         @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
                         @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                        
-                           
-
-                           
                             <a class="nav-link" asp-action="Create" asp-controller="Watch">Add a Watch</a>
                        
                         }
@@ -85,7 +89,7 @@
 
                 <div class="d-flex align-items-center navbar-icons" style="list-style-type:none">
                     
-
+                    @* Icons *@
                     <li class="nav-item me-3">
                         <a class="nav-link" asp-action="Audemars" asp-controller="Watch">
                             <i class="fas fa-user"></i>
@@ -93,12 +97,12 @@
                     </li>
 
                     <li class="nav-item me-3">
-                        <a class="nav-link" asp-action="Patek" asp-controller="Watch">
+                        <a class="nav-link" asp-action="Index" asp-controller="Cart">
                             <i class="fas fa-shopping-bag"></i>
                         </a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link" asp-action="Patek" asp-controller="Watch">
+                        <a class="nav-link" asp-action="Index" asp-controller="Wishlist">
                             <i class="fas fa-heart"></i>
                         </a>
                     </li>

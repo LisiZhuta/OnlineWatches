@@ -83,3 +83,19 @@
 .slider-controls button:hover {
     background-color: #2980b9;
 }
+
+.form button {
+    border: 1px solid #0d6efd; /* Set initial border color */
+    color: black; /* Set text color */
+    background-color: transparent; /* Make background transparent */
+    padding: 5px 10px; /* Add padding for better appearance */
+    transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+}
+
+    /* Hover effect for buttons */
+    .form button:hover {
+        border-color: #0d6efd; /* Change border color on hover */
+        background-color: #0d6efd; /* Change background color on hover */
+        color: #fff; /* Change text color on hover */
+        cursor: pointer; /* Show pointer cursor on hover */
+    }

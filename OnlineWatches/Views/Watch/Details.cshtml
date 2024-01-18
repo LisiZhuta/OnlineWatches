@@ -1,0 +1,69 @@
+﻿@model OnlineWatches.Models.Watch
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<style>
+    .details-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin-top: 20px;
+    }
+
+    .watch-image {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .watch-details {
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    .watch-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Style for the details card */
+    .details-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        background-color: #f9f9f9;
+    }
+
+    /* ... Other styles ... */
+</style>
+
+<div class="container details-container">
+    <div class="watch-image">
+        <img src="@Url.Content(Model.ImgPath)" alt="@Model.Name">
+    </div>
+    <div class="watch-details">
+        <div class="details-card">
+            <h2>@Model.Name</h2>
+            <p>Price: $@Model.Price</p>
+            <p>Year: @Model.Year</p>
+            @if (Model.Status == "Sale")
+            {
+                <p style="color:red">Discounted Price: $@(Model.Price - (Model.Price * Model.Discount) / 100)</p>
+            }
+
+            <!-- Action Buttons -->
+            <form method="post" asp-action="AddToCart" asp-controller="Cart">
+                <input type="hidden" name="watchId" value="@Model.Id" />
+                <input type="hidden" name="quantity" value="1" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+            <form method="post" asp-action="AddToWishlist" asp-controller="Wishlist">
+                <input type="hidden" name="watchId" value="@Model.Id" />
+                <button type="submit" class="btn btn-primary">Save to Wishlist</button>
+            </form>
+            <button type="button" class="btn btn-success">Buy Now</button>
+        </div>
+    </div>
+</div>
