@@ -7,7 +7,7 @@
 <style>
     .container {
         text-align: center;
-        margin-top: 20px;
+       
     }
 
     .cart-item {
@@ -78,7 +78,7 @@
         text-align: right;
     }
 </style>
-
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
 <div class="container">
     <h1 class="display-4">Your Wishlist</h1>
 
@@ -118,5 +118,9 @@
     else
     {
         <p>Your wishlist is empty.</p>
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <p>Sign in to add items to cart</p>
+        }
     }
 </div>

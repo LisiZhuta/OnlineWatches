@@ -18,7 +18,7 @@ foreach (var item in Model.CartItems)
 <style>
     .container {
         text-align: center;
-        margin-top: 20px;
+            
     }
 
     .cart-item {
@@ -89,17 +89,22 @@ foreach (var item in Model.CartItems)
     }
  
 </style>
-
+ @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
 <div class="container">
     
     <div class="header-row">
         <h1 class="display-4">Your Shopping Cart</h1>
+        
         <div class="checkout-container">
+           
+            @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+            {
             <h3>Total Price: $@totalPrice</h3>
             <form asp-action="Checkout" asp-controller="Cart" method="get">
                 <!-- Include any necessary hidden fields for checkout -->
                 <button type="submit" class="btn btn-success">Checkout</button>
             </form>
+            }
         </div>
     </div>
     @if (Model.CartItems != null && Model.CartItems.Any())
@@ -139,4 +144,9 @@ foreach (var item in Model.CartItems)
     else
     {
         <p>Your cart is empty.</p>
+
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <p>Sign in to add items to cart.</p>
+        }
     }

@@ -103,5 +103,31 @@ namespace OnlineWatches.Controllers
 
 			return View(model);
 		}
-	}
+
+
+        public async Task<IActionResult> UserInfo()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var roleName = roles.FirstOrDefault(); // If user is assumed to have only one role
+
+            var model = new UserInfoViewModel
+            {
+				Name=user.Name,
+                Email = user.Email,
+                RoleName = roleName,
+				/*Password=user.Password*/
+				
+                // Password is not included for security reasons
+            };
+
+            return View(model);
+        }
+
+    }
 }

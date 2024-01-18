@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineWatches.Data;
 using OnlineWatches.Models;
@@ -16,6 +17,7 @@ namespace OnlineWatches.Controllers
             _db = db;
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult AddToCart(int watchId, int quantity)
         {
@@ -64,7 +66,7 @@ namespace OnlineWatches.Controllers
             return View(cart);
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult RemoveFromCart(int cartItemId)
         {
@@ -83,7 +85,7 @@ namespace OnlineWatches.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize]
         public IActionResult Checkout()
         {
             return View();
@@ -91,6 +93,7 @@ namespace OnlineWatches.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Checkout(CheckoutViewModel model)
         {
            

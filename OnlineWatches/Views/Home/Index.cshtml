@@ -19,7 +19,9 @@
             {
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                            <a href="@Url.Action("Details", "Watch", new { id = watch.Id })">
+                                <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                            </a>
                         <div class="card-body">
                             <h5 class="card-title">@watch.Name</h5>
                             <p class="card-text">Price: $@watch.Price</p>

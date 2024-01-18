@@ -4,41 +4,65 @@
     ViewData["Title"] = "Checkout";
 }
 
-<h2>Checkout</h2>
+<form asp-action="Checkout" asp-controller="Cart" method="post" class="container mt-5">
+    @Html.AntiForgeryToken()
 
-<form asp-action="Checkout" asp-asp-controller="Cart" method="post">
-    <!-- Customer's Personal Information -->
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" asp-for="Name" placeholder="Your Name" required>
-    </div>
-    <div>
-        <label for="address">Address:</label>
-        <input type="text" id="address" asp-for="Address" placeholder="Your Address" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" asp-for="Email" placeholder="Your Email" required>
-    </div>
-    <div>
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" asp-for="Phone" placeholder="Your Phone Number" required>
-    </div>
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-header bg-primary text-white">
+            <h2 class="m-0">Checkout</h2>
+        </div>
 
-    <!-- Credit Card Information -->
-    <h3>Payment Information</h3>
-    <div>
-        <label for="cardNumber">Card Number:</label>
-        <input type="text" id="cardNumber" asp-for="CardNumber" placeholder="Card Number" required>
-    </div>
-    <div>
-        <label for="expiryDate">Expiry Date:</label>
-        <input type="text" id="expiryDate" asp-for="ExpiryDate" placeholder="MM/YY" required>
-    </div>
-    <div>
-        <label for="cvc">CVC:</label>
-        <input type="text" id="cvc" asp-for="CVC" placeholder="CVC" required>
-    </div>
+        <div class="card-body">
+            <!-- Customer's Personal Information -->
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label" style="color: #0d6efd;">Name</label>
+                <input asp-for="Name" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
 
-    <button type="submit" class="btn btn-primary">Complete Purchase</button>
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label" style="color: #0d6efd;">Address</label>
+                <input asp-for="Address" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label" style="color: #0d6efd;">Email</label>
+                <input type="email" asp-for="Email" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label" style="color: #0d6efd;">Phone</label>
+                <input type="tel" asp-for="Phone" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
+
+            <!-- Credit Card Information -->
+            <h3 style="color: #0d6efd;">Payment Information</h3>
+            <div class="mb-3">
+                <label asp-for="CardNumber" class="form-label" style="color: #0d6efd;">Card Number</label>
+                <input asp-for="CardNumber" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ExpiryDate" class="form-label" style="color: #0d6efd;">Expiry Date</label>
+                <input asp-for="ExpiryDate" class="form-control" style="border-color: #0d6efd;" placeholder="MM/YY" oninput="formatExpiryDate(this)" maxlength="5" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CVC" class="form-label" style="color: #0d6efd;">CVC</label>
+                <input asp-for="CVC" class="form-control" style="border-color: #0d6efd;" required />
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary w-100" style="background-color: #0d6efd; border-color: #0d6efd;">Complete Purchase</button>
+            </div>
+        </div>
+    </div>
 </form>
+
+<script>
+    function formatExpiryDate(input) {
+        var value = input.value;
+        if (value.length === 2 && !value.includes('/')) {
+            input.value = value + '/';
+        }
+    }
+</script>

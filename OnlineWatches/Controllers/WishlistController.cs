@@ -2,7 +2,8 @@
 using OnlineWatches.Data; // Assuming this is your DbContext namespace
 using System.Security.Claims; // For user identification
 using Microsoft.EntityFrameworkCore;
-using OnlineWatches.Models; // If you're using Entity Framework
+using OnlineWatches.Models;
+using Microsoft.AspNetCore.Authorization; // If you're using Entity Framework
 
 public class WishlistController : Controller
 {
@@ -27,6 +28,7 @@ public class WishlistController : Controller
 
     // Add to Wishlist
     [HttpPost]
+    [Authorize]
     public IActionResult AddToWishlist(int watchId)
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -42,6 +44,7 @@ public class WishlistController : Controller
 
     // Remove from Wishlist
     [HttpPost]
+    [Authorize]
     public IActionResult RemoveFromWishlist(int wishlistItemId)
     {
         var wishlistItem = _context.WishlistItems.Find(wishlistItemId);
