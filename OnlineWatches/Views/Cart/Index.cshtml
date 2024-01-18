@@ -96,7 +96,7 @@ foreach (var item in Model.CartItems)
         <h1 class="display-4">Your Shopping Cart</h1>
         <div class="checkout-container">
             <h3>Total Price: $@totalPrice</h3>
-            <form action="/path-to-checkout" method="post">
+            <form asp-action="Checkout" asp-controller="Cart" method="get">
                 <!-- Include any necessary hidden fields for checkout -->
                 <button type="submit" class="btn btn-success">Checkout</button>
             </form>

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineWatches.Data;
 using OnlineWatches.Models;
+using OnlineWatches.ViewModels;
 using System.Security.Claims;
 
 namespace OnlineWatches.Controllers
@@ -83,6 +84,28 @@ namespace OnlineWatches.Controllers
         }
 
 
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Checkout(CheckoutViewModel model)
+        {
+           
+                // Here you would normally process the payment
+                // For now, we'll just pretend the payment is successful
+                TempData["SuccessMessage"] = "Payment successful!";
+                return RedirectToAction("Confirmation");
+            
+
+            
+        }
+        public IActionResult Confirmation() 
+        {
+            return View();
+        }
 
 
 
