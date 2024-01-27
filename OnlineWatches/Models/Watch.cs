@@ -2,7 +2,7 @@
 
 namespace OnlineWatches.Models
 {
-	public class Watch
+	public class Watch //watchmodel
 	{
 		[Key]
 		public int Id { get; set; }	

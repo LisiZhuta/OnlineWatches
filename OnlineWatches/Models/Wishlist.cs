@@ -1,6 +1,6 @@
 ﻿namespace OnlineWatches.Models
 {
-    public class WishlistItem
+    public class WishlistItem //wishlist model
     {
         public int WishlistItemId { get; set; }
         public string UserId { get; set; } // User's identifier

@@ -1,0 +1,164 @@
+﻿@model IEnumerable<OnlineWatches.Models.Watch>
+
+@{
+    ViewData["Title"] = "Hublot ";
+}
+
+<style>
+    .container {
+        /* overflow:hidden; */
+        text-align: center
+    }
+
+    .img-container {
+        height: 200px; /* Set a fixed height for the container */
+        width: 100%; /* Set the width to 100% */
+        overflow: hidden;
+    }
+
+    .card-slider {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .col-md-4 {
+        position: relative;
+    }
+
+    .card {
+        margin: 0 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+        .card img {
+            object-fit: contain;
+            width: 100%;
+            height: 200px; /* Set a fixed height */
+        }
+
+    .card-body {
+        padding: 15px;
+        background-color: #f9f9f9;
+        height: 250px;
+    }
+
+    form button {
+        border: 1px solid #0d6efd; /* Set initial border color */
+        color: black; /* Set text color */
+        background-color: transparent; /* Make background transparent */
+        padding: 5px 10px; /* Add padding for better appearance */
+        transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+    }
+
+        /* Hover effect for buttons */
+        form button:hover {
+            border-color: #0d6efd; /* Change border color on hover */
+            background-color: #0d6efd; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+
+</style>
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4">Hublot Watches</h1>
+        <form asp-controller="Watch" asp-action="FilterByPrice" method="post" class="form-inline my-2 my-lg-0">
+            <input type="hidden" name="viewName" value="Hublot" />
+            <!-- Existing code... -->
+            <!-- Add a dropdown menu for price filtering -->
+            <div class="dropdown ml-2" style="text-align:right">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="priceFilterDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Price Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="priceFilterDropdown">
+                    <label for="minPrice" class="dropdown-item-text">Min Price:</label>
+                    <input type="number" id="minPrice" name="minPrice" class="form-control mb-2" placeholder="Min" />
+
+                    <label for="maxPrice" class="dropdown-item-text">Max Price:</label>
+                    <input type="number" id="maxPrice" name="maxPrice" class="form-control mb-2" placeholder="Max" />
+
+                    <button class="btn btn-outline-success" type="submit">Apply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="slider-container">
+            <div class="card-slider">
+                @foreach (var watch in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="img-container">
+                                <a href="@Url.Action("Details", "Watch", new { id = watch.Id })">
+                                    <img src="@Url.Content(watch.ImgPath)" class="card-img-top" alt="Watch Image">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@watch.Name</h5>
+                                <p class="card-text">Price: $@watch.Price</p>
+                                <p class="card-text">Year: @watch.Year</p>
+                                @*here if status is sale it adds to the price it shows the original price and then the discounted price*@
+                                @if (watch.Status == "Sale")
+                                {
+                                    <p class="card-text" style="color:red">Discounted Price: $@(watch.Price - (watch.Price * watch.Discount) / 100)</p>
+                                }
+                                else
+                                {
+                                    <p class="card-text" style="color: transparent;">Discounted Price: $</p>
+                                }
+
+                                @*here if the user is not admin the add to cart and save to wishlist buttons show(i made it like this just to
+                        show different functionalities for users and admins, for admins there are 2 other options
+                        *@
+                                @if (@SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
+                                {
+                                    <div class="mt-2">
+                                        <form method="post" asp-action="AddToCart" asp-controller="Cart" class="mr-2">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                        </form>
+                                        <form method="post" asp-action="AddToWishlist" asp-controller="Wishlist">
+                                            <input type="hidden" name="watchId" value="@watch.Id" />
+                                            <button type="submit" class="btn btn-primary">Save to Wishlist</button>
+                                        </form>
+                                    </div>
+
+                                }
+                                @*here if the user is admin the edit and remove buttons appear *@
+                        @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+                                @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {
+                                    <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
+                                        <input type="hidden" name="watchId" value="@watch.Id" />
+                                        <input type="hidden" name="sourceView" value="Hublot" />
+                                        <button type="submit">Remove Watch</button>
+                                    </form>
+                                    <form asp-controller="Watch" asp-action="Update" asp-route-id="@watch.Id" method="get">
+                                        <button type="submit">Edit Watch</button>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>No watches available.</p>
+    }
+</div>
+
+

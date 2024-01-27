@@ -10,13 +10,14 @@ namespace OnlineWatches.Controllers
 {
     public class CartController : Controller
     {
-        private readonly OnlineWatchesDbContext _db;
+        private readonly OnlineWatchesDbContext _db;//initializes db
 
         public CartController(OnlineWatchesDbContext db)
         {
             _db = db;
         }
 
+        //deals with adding items to cart
         [Authorize]
         [HttpPost]
         public IActionResult AddToCart(int watchId, int quantity)
@@ -50,15 +51,16 @@ namespace OnlineWatches.Controllers
             return RedirectToAction("Index");
         }
 
-
+        //displays the list of items in cart
+      
         public IActionResult Index()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);//gets the id of the logged in user
 
             // Retrieve cart items for the current user
             var cartItems = _db.CartItems.Include(c => c.Watch).Where(c => c.UserId == userId).ToList();
 
-            var cart = new ShoppingCart
+            var cart = new ShoppingCart //creates a shopping cart 
             {
                 CartItems = cartItems
             };
@@ -66,18 +68,20 @@ namespace OnlineWatches.Controllers
             return View(cart);
         }
 
+
+        //deals with the removal of items from shoppingcart
         [Authorize]
         [HttpPost]
         public IActionResult RemoveFromCart(int cartItemId)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);//gets the id of the logged in user
 
             // Find the cart item
             var cartItem = _db.CartItems.FirstOrDefault(c => c.CartItemId == cartItemId && c.UserId == userId);
 
-            if (cartItem != null)
+            if (cartItem != null)//checks if cart is not empty
             {
-                _db.CartItems.Remove(cartItem);
+                _db.CartItems.Remove(cartItem);//removes the item selected for removal
                 _db.SaveChanges();
             }
 
@@ -86,7 +90,7 @@ namespace OnlineWatches.Controllers
         }
 
         [Authorize]
-        public IActionResult Checkout()
+        public IActionResult Checkout()//displays the checkout view (where you put information for purchase)
         {
             return View();
         }
@@ -94,8 +98,9 @@ namespace OnlineWatches.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Checkout(CheckoutViewModel model)
-        {
+        public IActionResult Checkout(CheckoutViewModel model) //deals with the action of checking out 
+        {   
+            
            
                 // Here you would normally process the payment
                 // For now, we'll just pretend the payment is successful
@@ -105,6 +110,7 @@ namespace OnlineWatches.Controllers
 
             
         }
+        //after hitting the checkout button a little message saying that the payment is successful
         public IActionResult Confirmation() 
         {
             return View();

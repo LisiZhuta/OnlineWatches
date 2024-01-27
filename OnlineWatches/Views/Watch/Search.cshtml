@@ -64,11 +64,27 @@
             cursor: pointer; /* Show pointer cursor on hover */
         }
 
+        .dropbown button{
+        border: 1px solid #0d6efd; /* Set initial border color */
+        color: black; /* Set text color */
+        background-color: transparent; /* Make background transparent */
+        padding: 5px 10px; /* Add padding for better appearance */
+        transition: border-color 0.3s ease-in-out; /* Add transition effect for border color */
+    }
+
+
+    .dropdown button:hover{
+        border-color: #0d6efd; /* Change border color on hover */
+        background-color: #0d6efd; /* Change background color on hover */
+        color: #fff; /* Change text color on hover */
+        cursor: pointer; /* Show pointer cursor on hover */
+    }
 </style>
 
 <div class="container">
     <div class="text-center mt-5">
         <h1 class="display-4">Searched Results</h1>
+        
     </div>
 
     @if (Model != null && Model.Any())
@@ -88,6 +104,7 @@
                                 <h5 class="card-title">@watch.Name</h5>
                                 <p class="card-text">Price: $@watch.Price</p>
                                 <p class="card-text">Year: @watch.Year</p>
+                                @*here if status is sale it adds to the price it shows the original price and then the discounted price*@
                                 @if (watch.Status == "Sale")
                                 {
                                     <p class="card-text" style="color:red">Discounted Price: $@(watch.Price - (watch.Price * watch.Discount) / 100)</p>
@@ -96,6 +113,10 @@
                                 {
                                     <p class="card-text" style="color: transparent;">Discounted Price: $</p>
                                 }
+
+                                @*here if the user is not admin the add to cart and save to wishlist buttons show(i made it like this just to
+                        show different functionalities for users and admins, for admins there are 2 other options
+                        *@
                                 @if (@SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
                                 {
                                     <div class="mt-2">
@@ -110,6 +131,7 @@
                                     </div>
 
                                 }
+                                @*here if the user is admin the edit and remove buttons appear *@
                         @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
                                 @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                 {

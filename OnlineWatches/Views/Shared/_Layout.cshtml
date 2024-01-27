@@ -23,7 +23,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <partial name="_LoginPartial" />
+                <partial name="_LoginPartial" />@*see login partial for more details there are some specifications there*@
+            
+            
             </div>
         </nav>
 
@@ -61,6 +63,8 @@
                                 <a class="dropdown-item" asp-action="Rolex" asp-controller="Watch">Rolex</a>
                                 <a class="dropdown-item" asp-action="Audemars" asp-controller="Watch">Audemars Piguet</a>
                                 <a class="dropdown-item" asp-action="Patek" asp-controller="Watch">Patek Philippe</a>
+                                <a class="dropdown-item" asp-action="Hublot" asp-controller="Watch">Hublot</a>
+                                <a class="dropdown-item" asp-action="Cartier" asp-controller="Watch">Cartier</a>
                                 <!-- Add more brands as needed -->
                                     
 
@@ -78,11 +82,11 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Sale" asp-controller="Watch">Sale/Offers</a>
                         </li>
+                        @*shows the add a watch option (only admins can add watches)*@
                         @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
                         @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
                             <a class="nav-link" asp-action="Create" asp-controller="Watch">Add a Watch</a>
-                       
                         }
                     </ul>
                 </div>

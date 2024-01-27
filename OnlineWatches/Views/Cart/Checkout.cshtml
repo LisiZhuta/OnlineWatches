@@ -58,7 +58,11 @@
     </div>
 </form>
 
+
 <script>
+    @*first function is for putting a / in the date format automatically
+      second function is a popup message after you click checkout that you can confirm or deny*@
+
     function formatExpiryDate(input) {
         var value = input.value;
         if (value.length === 2 && !value.includes('/')) {
@@ -72,11 +76,6 @@
             return confirm('Are you sure you want to complete this purchase?');
         }
 
-    function formatExpiryDate(input) {
-        var value = input.value;
-        if (value.length === 2 && !value.includes('/')) {
-            input.value = value + '/';
-        }
-    }
+    
 </script>
 

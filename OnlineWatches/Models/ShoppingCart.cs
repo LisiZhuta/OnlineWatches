@@ -1,6 +1,6 @@
 ﻿namespace OnlineWatches.Models
 {
-    public class CartItem
+    public class CartItem //cart model
     {
         public int CartItemId { get; set; }
         public int WatchId { get; set; }
@@ -12,6 +12,6 @@
     public class ShoppingCart
     {
         public List<CartItem> CartItems { get; set; }
-        // Additional properties like total price can be added here
+        
     }
 }

@@ -76,6 +76,25 @@
 <div class="container">
     <div class="text-center mt-5">
         <h1 class="display-4">All Watches</h1>
+        <form asp-controller="Watch" asp-action="FilterByPrice"  method="get" class="form-inline my-2 my-lg-0">
+            <input type="hidden" name="viewName" value="AllWatches" />
+            <!-- Existing code... -->
+            <!-- Add a dropdown menu for price filtering -->
+            <div class="dropdown ml-2" style="text-align:right">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="priceFilterDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Price Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="priceFilterDropdown">
+                    <label for="minPrice" class="dropdown-item-text">Min Price:</label>
+                    <input type="number" id="minPrice" name="minPrice" class="form-control mb-2" placeholder="Min" />
+
+                    <label for="maxPrice" class="dropdown-item-text">Max Price:</label>
+                    <input type="number" id="maxPrice" name="maxPrice" class="form-control mb-2" placeholder="Max" />
+
+                    <button class="btn btn-outline-success" type="submit">Apply</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     @if (Model != null && Model.Any())

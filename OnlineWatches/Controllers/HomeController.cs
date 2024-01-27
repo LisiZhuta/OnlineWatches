@@ -27,7 +27,7 @@ namespace OnlineWatches.Controllers
             return View(watches);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Privacy()//displays privacy 
         {
             return View();
         }

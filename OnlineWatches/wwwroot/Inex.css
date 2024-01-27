@@ -46,7 +46,7 @@
 }
 
 .slider-controls {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     width: 83%;
@@ -56,6 +56,7 @@
 }
 
     .slider-controls button {
+        position:fixed;
         background-color: #3498db;
         border: none;
         color: white;
@@ -99,3 +100,4 @@
         color: #fff; /* Change text color on hover */
         cursor: pointer; /* Show pointer cursor on hover */
     }
+

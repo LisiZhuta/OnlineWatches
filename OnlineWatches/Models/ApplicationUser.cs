@@ -2,7 +2,7 @@
 
 namespace OnlineWatches.Models
 {
-	public class ApplicationUser:IdentityUser
+	public class ApplicationUser:IdentityUser //User model
 	{
 		public string Name { get; set; }
 		

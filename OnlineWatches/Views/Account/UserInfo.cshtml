@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+    @*this shows a button all accounts which can manage all accounts (only admin can see this button)*@
     @if (await UserManager.IsInRoleAsync(applicationUser, "Admin"))
     {
         <a href="@Url.Action("AllAccounts", "Account")" class="btn btn-primary mt-3">View All Accounts</a>

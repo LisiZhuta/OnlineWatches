@@ -2,7 +2,7 @@
 
 using OnlineWatches.Models;
 
-public class CheckoutViewModel
+public class CheckoutViewModel 
 {
     public ShoppingCart ShoppingCart { get; set; }
 

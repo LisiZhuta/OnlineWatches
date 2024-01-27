@@ -101,6 +101,7 @@
                         <div class="price-container">
                             $@item.Watch.Price
                             @if (item.Watch.Status == "Sale")
+                            @*here if status is sale it adds to the price it shows the original price and then the discounted price*@
                             {
                                 <br>
                                 <span style="color:red">Sale Price: $@(item.Watch.Price - (item.Watch.Price * item.Watch.Discount) / 100)</span>
@@ -120,7 +121,7 @@
         <p>Your wishlist is empty.</p>
         @if (!SignInManager.IsSignedIn(User))
         {
-            <p>Sign in to add items to cart</p>
+            <p>Sign in to add items to Wishlist</p>
         }
     }
 </div>

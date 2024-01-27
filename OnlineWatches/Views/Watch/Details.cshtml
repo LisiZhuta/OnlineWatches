@@ -51,6 +51,9 @@
             color: #fff; /* Change text color on hover */
             cursor: pointer; /* Show pointer cursor on hover */
         }
+
+
+
     /* ... Other styles ... */
 </style>
 
@@ -63,11 +66,16 @@
             <h2>@Model.Name</h2>
             <p>Price: $@Model.Price</p>
             <p>Year: @Model.Year</p>
+            @*here if status is sale it adds to the price it shows the original price and then the discounted price*@
             @if (Model.Status == "Sale")
             {
                 <p style="color:red">Discounted Price: $@(Model.Price - (Model.Price * Model.Discount) / 100)</p>
             }
             @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+
+            @*here if the user is not admin the add to cart and save to wishlist buttons show(i made it like this just to
+            show different functionalities for users and admins, for admins there are 2 other options
+            *@
             @if (@SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
             {
                 <form method="post" asp-action="RemoveWatch" asp-controller="Watch">
@@ -79,7 +87,7 @@
                 </form>
 
             }
-
+            @*in details view we have for the user functionality add to cart save to wishlist and buy now which takes you straight to checkout form*@
             @if (@SignInManager.IsSignedIn(User) && User.IsInRole("User"))
             {
                 
