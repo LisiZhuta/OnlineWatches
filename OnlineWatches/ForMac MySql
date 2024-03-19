@@ -1,0 +1,3 @@
+in appsettings.json change the line connection string 
+download the pomelo.mysql package (also see version of other packages)
+remove the migrations and recreate them (initial packages are created with sql server and the new ones need to be created with mysql)
